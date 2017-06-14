@@ -16,10 +16,10 @@ import ReversedFlatList from 'react-native-reversed-flat-list';
 import { send, subscribe } from 'react-native-training-chat-server';
 import Header from './Header';
 
-const NAME = '@PiotrBerebecki';
-const CHANNEL = 'Reactivate';
+const NAME = '@realDonaldTrump';
+const CHANNEL = 'Random';
 const AVATAR =
-  'https://avatars3.githubusercontent.com/u/17753038?v=3&u=228d96db8fd7030163412fcf89e6e64d297f0bc8&s=400';
+  'https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_400x400.jpg';
 
 export default class App extends React.Component {
   state = {
@@ -27,7 +27,7 @@ export default class App extends React.Component {
     messages: [],
   };
 
-  componentDidMount() {
+  componentWillMount() {
     subscribe(CHANNEL, messages => {
       this.setState({ messages });
     });
@@ -75,10 +75,10 @@ export default class App extends React.Component {
           <View style={styles.footer}>
             <TextInput
               value={this.state.typing}
-              onChangeText={text => this.setState({ typing: text })}
               style={styles.input}
               underlineColorAndroid="transparent"
               placeholder="Type something nice"
+              onChangeText={text => this.setState({ typing: text })}
             />
             <TouchableOpacity onPress={this.sendMessage}>
               <Text style={styles.send}>Send</Text>
@@ -123,13 +123,12 @@ const styles = StyleSheet.create({
   },
   input: {
     paddingHorizontal: 20,
-    paddingVertical: 10,
     fontSize: 18,
     flex: 1,
   },
   send: {
     alignSelf: 'center',
-    color: 'tomato',
+    color: 'lightseagreen',
     fontSize: 16,
     fontWeight: 'bold',
     padding: 20,
